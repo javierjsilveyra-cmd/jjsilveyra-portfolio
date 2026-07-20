@@ -1,5 +1,14 @@
 .mobileSlideshow {
   display: none;
+  background-color: #000000;
+}
+
+.slideshowContainer {
+  background-color: #000000;
+}
+
+.swiperContainer {
+  background-color: #000000;
 }
 
 .swiperSlide {
@@ -7,6 +16,7 @@
   margin-left: auto;
   display: flex;
   justify-content: center;
+  background-color: #000000;
 }
 
 .swiperImage {

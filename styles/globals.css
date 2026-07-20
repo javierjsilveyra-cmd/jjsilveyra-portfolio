@@ -10,8 +10,8 @@ body {
   margin: 0;
   font-family: "Rufina", serif;
   transition: all 1s;
-  background-color: #1a1a1a;
-  color: #f0f0f0;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 a {

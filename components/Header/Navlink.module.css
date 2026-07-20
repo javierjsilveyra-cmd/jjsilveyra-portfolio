@@ -6,10 +6,10 @@
   color: #c9c9c9;
 }
 .link:hover {
-  color: black;
+  color: #ffffff;
 }
 
 .selected {
   transition: all 0.5s;
-  color: black;
+  color: #ffffff;
 }

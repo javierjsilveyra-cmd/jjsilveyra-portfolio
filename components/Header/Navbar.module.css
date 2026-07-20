@@ -1,13 +1,15 @@
 .container {
-  display: flex;
-  gap: 25px;
+  transition: all 0.5;
 }
 
-@media (max-width: 600px) {
-  .container {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
+.link {
+  color: #c9c9c9;
+}
+.link:hover {
+  color: #ffffff;
+}
+
+.selected {
+  transition: all 0.5s;
+  color: #ffffff;
 }

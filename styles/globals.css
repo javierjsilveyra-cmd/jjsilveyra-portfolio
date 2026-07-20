@@ -5,13 +5,15 @@ body::-webkit-scrollbar {
 }
 
 html,
-body {
+body,
+#__next {
   padding: 0;
   margin: 0;
   font-family: "Rufina", serif;
   transition: all 1s;
   background-color: #000000;
   color: #ffffff;
+  min-height: 100vh;
 }
 
 main {

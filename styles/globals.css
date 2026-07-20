@@ -35,7 +35,16 @@ a {
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: #000 !important;
+  color: #808080 !important;
+  top: 50% !important;
+  bottom: auto !important;
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 20px !important;
 }
 
 @media (max-width: 720px) {

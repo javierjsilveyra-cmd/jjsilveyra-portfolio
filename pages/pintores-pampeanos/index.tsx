@@ -13,7 +13,7 @@ export default function PintoresPampeanos() {
           <div className={styles.column}>
             <h2 className={styles.sectionTitle}>Sobre la Residencia</h2>
             <p>
-              Del 16 al 21 de febrero de 2026 se llevará a cabo "Pintores pampeanos", resultando de una
+              Del 16 al 21 de febrero de 2026 se llevará a cabo &quot;Pintores pampeanos&quot;, resultando de una
               convocatoria dirigida a artistas interesados en la pintura del paisaje. El propósito de esta
               residencia de seis días es la búsqueda e investigación del dibujo y pintura de la
               naturaleza, en un ambiente ameno de colegas y amigos. Esta iniciativa que empezó en 2025
@@ -23,7 +23,7 @@ export default function PintoresPampeanos() {
             <h3 className={styles.subsectionTitle}>Metodología</h3>
             <p>
               Durante la residencia cada uno de los artistas está alentado a dibujar y pintar a partir de la observación de
-              la naturaleza en "plein air", como principal motor, además de participar en el intercambio de técnicas,
+              la naturaleza en &quot;plein air&quot;, como principal motor, además de participar en el intercambio de técnicas,
               ideas, conceptos, etc., todo aquello que resulte de utilidad y motivación para la nutrición artística personal,
               con el empuje que es el hacerlo de manera colectiva.
             </p>
@@ -32,7 +32,7 @@ export default function PintoresPampeanos() {
             <p>
               Los participantes que queden seleccionados para la residencia convivirán en una misma ubicación, convenientemente
               elegida en la pampa húmeda de la provincia de Buenos Aires. Aunque no haya relación institucional alguna, se debe
-              mencionar que este proyecto está inspirado en su creación por otro muy anterior, la "Hudson River Fellowship",
+              mencionar que este proyecto está inspirado en su creación por otro muy anterior, la &quot;Hudson River Fellowship&quot;,
               una iniciativa de Grand Central Atelier en EE.UU.
             </p>
           </div>
@@ -41,8 +41,8 @@ export default function PintoresPampeanos() {
             <h2 className={styles.sectionTitle}>Detalles para los Artistas</h2>
             <p>
               Diez aplicantes seleccionados convivirán y trabajarán juntos durante seis días, del 16 al 21 de febrero de 2026.
-              Los artistas se alojarán en los dormitorios de "La Rica", y pintarán en el entorno campestre de esta antigua
-              estancia de 1838. A dos horas y media de C.A.B.A., "La Rica" se encuentra rodeada de animales de campo,
+              Los artistas se alojarán en los dormitorios de &quot;La Rica&quot;, y pintarán en el entorno campestre de esta antigua
+              estancia de 1838. A dos horas y media de C.A.B.A., &quot;La Rica&quot; se encuentra rodeada de animales de campo,
               un antiguo y pintoresco jardín adornado de aljibes, pilares y galerías, además de la amplia llanura pampeana.
             </p>
 

@@ -1,5 +1,5 @@
 // Import Swiper React components
-import { Navigation, Autoplay, Pagination } from "swiper/modules";
+import { Navigation, Autoplay, Pagination, Keyboard } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -14,7 +14,7 @@ export default function Slideshow(props) {
     <>
       <div className={styles.slideshowContainer}>
         <Swiper
-          modules={[Navigation, Autoplay, Pagination]}
+          modules={[Navigation, Autoplay, Pagination, Keyboard]}
           spaceBetween={50}
           autoplay={{
             disableOnInteraction: true,
@@ -25,6 +25,9 @@ export default function Slideshow(props) {
           slidesPerView={1}
           className={styles.swiperContainer}
           navigation
+          keyboard={{
+            enabled: true,
+          }}
           centeredSlides
           loop
         >

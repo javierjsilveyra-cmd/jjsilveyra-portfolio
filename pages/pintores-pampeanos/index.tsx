@@ -6,18 +6,17 @@ export default function PintoresPampeanos() {
   return (
     <Layout>
       <div className={styles.container}>
-        <h1 className={styles.title}>Pintores pampeanos (3º edición)</h1>
+        <h1 className={styles.title}>Pintores Pampeanos (3º edición)</h1>
         <p className={styles.subtitle}>Una residencia colaborativa de pintura de paisaje</p>
 
         <div className={styles.content}>
           <div className={styles.column}>
             <h2 className={styles.sectionTitle}>Sobre la Residencia</h2>
             <p className={styles.paragraph}>
-              Del 8 al 13 de febrero de 2027 se llevará a cabo &quot;Pintores pampeanos&quot;, resultando de una convocatoria dirigida a artistas interesados en la pintura del paisaje. El propósito de esta residencia de seis días es la búsqueda e investigación del dibujo y pintura de la naturaleza, en un ambiente ameno de colegas y amigos. Esta iniciativa que empezó en 2025 busca empalmarse con el movimiento actual de renovación del arte clásico/tradicional.
+              Del 8 al 13 de febrero de 2027 se llevará a cabo &quot;Pintores Pampeanos&quot;, resultando de una convocatoria dirigida a artistas interesados en la pintura del paisaje. El propósito de esta residencia de seis días es la búsqueda e investigación del dibujo y pintura de la naturaleza, en un ambiente ameno de colegas y amigos. Esta iniciativa que empezó en 2025 busca empalmarse con el movimiento actual de renovación del arte clásico/tradicional.
             </p>
 
-            <h3 className={styles.subsectionTitle}>Metodología</h3>
-            <p className={styles.paragraph}>
+            <p className={styles.italic}>
               Durante la residencia cada uno de los artistas está alentado a dibujar y pintar a partir de la observación de la naturaleza en &quot;plein air&quot;, como principal motor, además de participar en el intercambio de técnicas, ideas, conceptos, etc., todo aquello que resulte de utilidad y motivación para la nutrición artística personal, con el empuje que es el hacerlo de manera colectiva.
             </p>
 
@@ -68,12 +67,26 @@ export default function PintoresPampeanos() {
               <strong>Formulario de aplicación (abierto hasta el 30 de octubre)</strong>
             </p>
             <a
-              href="https://forms.gle/Y6GKRDd5dbisXMWX6"
+              href="https://forms.gle/nVK8RAesWo4ARX4s7"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.link}
             >
               Enviar Aplicación
+            </a>
+          </div>
+
+          <div className={styles.cta}>
+            <p className={styles.paragraph}>
+              <strong>Reglas de Convivencia</strong>
+            </p>
+            <a
+              href="https://docs.google.com/document/d/1Mce6ztDDUFuo-MvZaWwfWCHhmWJxv3uRSrHPFBLi5L0/edit?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.link}
+            >
+              Descargar Documento
             </a>
           </div>
         </div>

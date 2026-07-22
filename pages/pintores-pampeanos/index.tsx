@@ -1,8 +1,20 @@
 import React from "react";
 import Layout from "../../components/Layout";
 import styles from "./index.module.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function PintoresPampeanos() {
+  const galleryImages = [
+    { src: "/pintores-pampeanos/horse.jpg", alt: "Artista pintando caballo" },
+    { src: "/pintores-pampeanos/artists.jpg", alt: "Artistas pintando en grupo" },
+    { src: "/pintores-pampeanos/easel.jpg", alt: "Caballete con pintura de paisaje" },
+    { src: "/pintores-pampeanos/forest.jpg", alt: "Caballete pintando en bosque" },
+  ];
+
   return (
     <Layout>
       <div className={styles.container}>
@@ -49,6 +61,22 @@ export default function PintoresPampeanos() {
               </li>
             </ul>
           </div>
+        </div>
+
+        <div className={styles.slideshow}>
+          <Swiper
+            modules={[Navigation, Pagination]}
+            navigation
+            pagination={{ clickable: true }}
+            loop
+            className={styles.swiper}
+          >
+            {galleryImages.map((image, index) => (
+              <SwiperSlide key={index}>
+                <img src={image.src} alt={image.alt} className={styles.slideImage} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
         <div className={styles.fullWidth}>

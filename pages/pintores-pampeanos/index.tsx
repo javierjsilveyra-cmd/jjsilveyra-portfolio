@@ -6,9 +6,18 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import PintoresPampeanosSlideshow from "../../components/PintoresPampeanosSlideshow";
+import { getPintoresPampeanosGallery, PintoresPampeanosImage } from "../../services/pintores-pampeanos";
+import { GetServerSideProps } from "next";
 
-export default function PintoresPampeanos() {
-  const galleryImages = [
+interface PintoresPampeanosProps {
+  galleryImages: PintoresPampeanosImage[];
+}
+
+export default function PintoresPampeanos({
+  galleryImages,
+}: PintoresPampeanosProps) {
+  const staticImages = [
     { src: "/pintores-pampeanos/horse.jpg", alt: "Artista pintando caballo" },
     { src: "/pintores-pampeanos/artists.jpg", alt: "Artistas pintando en grupo" },
     { src: "/pintores-pampeanos/easel.jpg", alt: "Caballete con pintura de paisaje" },
@@ -51,18 +60,27 @@ export default function PintoresPampeanos() {
             <h3 className={styles.subsectionTitle}>Información Práctica</h3>
             <ul className={styles.list}>
               <li>
-                <strong>Alojamiento y comida:</strong> Se asignará a cada participante una habitación, que podrá ser individual o compartida. La comida será provista al mediodía y preparada en colaboración a la noche.
+                <strong>Alojamiento y comida:</strong> Se asignará a cada participante una habitación, que podrá ser individual o compartida. La comida será provista al mediodía y preparada especialmente por el equipo de La Rica. Se proporcionará desayuno y cena para todos los participantes.
               </li>
               <li>
-                <strong>Viajes:</strong> Los artistas son responsables de todos los gastos relacionados con el viaje. Se coordinarán traslados grupales desde Buenos Aires a La Rica, para arribar durante el lunes 8 de febrero.
+                <strong>Viajes:</strong> Los artistas son responsables de todos los gastos relacionados con el viaje. Se coordinarán traslados grupales desde Buenos Aires a La Rica, para arribar el primer día de la residencia.
               </li>
               <li>
-                <strong>Tarifa:</strong> Al momento de la aceptación de aplicación, se requerirá abonar una tarifa de participación de $500 mil pesos en dos pagos, que cubre la comida (desayuno, almuerzo y cena) y el alojamiento durante los 6 días.
+                <strong>Tarifa:</strong> Al momento de la aceptación de aplicación, se requerirá abonar una tarifa de participación de $500 mil pesos en dos pagos, que cubre la comida (desayuno, almuerzo y cena), alojamiento y los materiales básicos necesarios para la residencia.
               </li>
             </ul>
           </div>
         </div>
 
+        {/* Gallery from Contentful */}
+        {galleryImages && galleryImages.length > 0 && (
+          <>
+            <h2 className={styles.galleryTitle}>Galería de la Residencia</h2>
+            <PintoresPampeanosSlideshow images={galleryImages} />
+          </>
+        )}
+
+        {/* Static slideshow */}
         <div className={styles.slideshow}>
           <Swiper
             modules={[Navigation, Pagination]}
@@ -71,7 +89,7 @@ export default function PintoresPampeanos() {
             loop
             className={styles.swiper}
           >
-            {galleryImages.map((image, index) => (
+            {staticImages.map((image, index) => (
               <SwiperSlide key={index}>
                 <img src={image.src} alt={image.alt} className={styles.slideImage} />
               </SwiperSlide>
@@ -82,7 +100,7 @@ export default function PintoresPampeanos() {
         <div className={styles.fullWidth}>
           <h2 className={styles.sectionTitle}>Acerca de la Aplicación</h2>
           <p className={styles.paragraph}>
-            Además de responder algunas preguntas relacionadas con los objetivos e intereses artísticos, se solicita a los artistas que envíen 7 imágenes (indicando técnica, tamaño y fecha) con las siguientes especificaciones:
+            Además de responder algunas preguntas relacionadas con los objetivos e intereses artísticos, se solicita a los artistas que envíen 7 imágenes (indicando técnica, tamaño y fecha) de trabajos recientes que demuestren su nivel y proceso artístico.
           </p>
           <ul className={styles.list}>
             <li>Se fomenta incluir paisajes, aunque no exclusivamente, también puede incluir figuras, yesos, naturalezas muertas, interiores, etc.</li>
@@ -122,3 +140,20 @@ export default function PintoresPampeanos() {
     </Layout>
   );
 }
+
+export const getServerSideProps: GetServerSideProps<PintoresPampeanosProps> =
+  async () => {
+    try {
+      const galleryImages = await getPintoresPampeanosGallery();
+      return {
+        props: { galleryImages },
+        revalidate: 3600, // Revalidar cada hora
+      };
+    } catch (error) {
+      console.error("Error fetching gallery data:", error);
+      return {
+        props: { galleryImages: [] },
+        revalidate: 300, // Revalidar cada 5 minutos en caso de error
+      };
+    }
+  };

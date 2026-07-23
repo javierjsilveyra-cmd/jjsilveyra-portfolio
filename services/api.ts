@@ -32,42 +32,42 @@ export async function getPintoresPampeanosGallery(): Promise<
       return [];
     }
 
-    const images: PintoresPampeanosImage[] = data.items
-      .map((item: any) => {
-        try {
-          if (!item.fields || !item.fields.imagen) {
-            return null;
-          }
+    const images: PintoresPampeanosImage[] = [];
 
-          const imageField = item.fields.imagen;
-          const imageData =
-            imageField.fields?.file || imageField.url
-              ? imageField
-              : imageField.fields;
-
-          return {
-            id: item.sys.id,
-            title: item.fields.titulo || "",
-            image: {
-              url: imageData.url || imageData.fields?.file?.url || "",
-              width:
-                imageData.details?.image?.width ||
-                imageData.fields?.file?.details?.image?.width ||
-                800,
-              height:
-                imageData.details?.image?.height ||
-                imageData.fields?.file?.details?.image?.height ||
-                600,
-              alt: item.fields.imagenAlt || item.fields.titulo || "",
-            },
-            description: item.fields.descripcion || "",
-          };
-        } catch (e) {
-          console.error("Error mapping gallery item:", e);
-          return null;
+    for (const item of data.items) {
+      try {
+        if (!item.fields || !item.fields.imagen) {
+          continue;
         }
-      })
-      .filter((item: PintoresPampeanosImage | null) => item !== null);
+
+        const imageField = item.fields.imagen;
+        const imageData =
+          imageField.fields?.file || imageField.url
+            ? imageField
+            : imageField.fields;
+
+        images.push({
+          id: item.sys.id,
+          title: item.fields.titulo || "",
+          image: {
+            url: imageData.url || imageData.fields?.file?.url || "",
+            width:
+              imageData.details?.image?.width ||
+              imageData.fields?.file?.details?.image?.width ||
+              800,
+            height:
+              imageData.details?.image?.height ||
+              imageData.fields?.file?.details?.image?.height ||
+              600,
+            alt: item.fields.imagenAlt || item.fields.titulo || "",
+          },
+          description: item.fields.descripcion || "",
+        });
+      } catch (e) {
+        console.error("Error mapping gallery item:", e);
+        continue;
+      }
+    }
 
     return images;
   } catch (error) {

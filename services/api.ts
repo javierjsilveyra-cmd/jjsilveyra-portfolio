@@ -18,6 +18,13 @@ export interface PintoresPampeanosImage {
   description?: string;
 }
 
+function normalizeUrl(url?: string): string {
+  if (!url) return "";
+  if (url.startsWith("http://") || url.startsWith("https://")) return url;
+  if (url.startsWith("//")) return `https:${url}`;
+  return url;
+}
+
 export async function getPintoresPampeanosGallery(): Promise<
   PintoresPampeanosImage[]
 > {
@@ -57,6 +64,8 @@ export async function getPintoresPampeanosGallery(): Promise<
           imageWidth = imageField.details?.image?.width || imageWidth;
           imageHeight = imageField.details?.image?.height || imageHeight;
         }
+
+        imageUrl = normalizeUrl(imageUrl);
 
         if (!imageUrl) {
           console.warn("No image URL found for item:", item.sys.id);

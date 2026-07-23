@@ -14,9 +14,7 @@ interface PintoresPampeanosSlideshowProps {
 export default function PintoresPampeanosSlideshow({
   images,
 }: PintoresPampeanosSlideshowProps) {
-  if (!images || images.length === 0) {
-    return null;
-  }
+  if (!images || images.length === 0) return null;
 
   return (
     <div className={styles.slideshowContainer}>
@@ -29,29 +27,37 @@ export default function PintoresPampeanosSlideshow({
         spaceBetween={0}
         slidesPerView={1}
       >
-        {images.map((image) => (
-          <SwiperSlide key={image.id}>
-            <div className={styles.slideContent}>
-              <div className={styles.imageWrapper}>
-                <img
-                  src={`https:${image.image.url}`}
-                  alt={image.image.alt}
-                  className={styles.slideImage}
-                />
-              </div>
-              {image.title && (
-                <div className={styles.slideInfo}>
-                  <h3 className={styles.slideTitle}>{image.title}</h3>
-                  {image.description && (
-                    <p className={styles.slideDescription}>
-                      {image.description}
-                    </p>
+        {images.map((image) => {
+          const src = image.image?.url || "";
+          const alt = image.image?.alt || image.title || "Imagen";
+          return (
+            <SwiperSlide key={image.id}>
+              <div className={styles.slideContent}>
+                <div className={styles.imageWrapper}>
+                  {src ? (
+                    <img
+                      src={src}
+                      alt={alt}
+                      className={styles.slideImage}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className={styles.imagePlaceholder}>Imagen no disponible</div>
                   )}
                 </div>
-              )}
-            </div>
-          </SwiperSlide>
-        ))}
+
+                {(image.title || image.description) && (
+                  <div className={styles.slideInfo}>
+                    {image.title && <h3 className={styles.slideTitle}>{image.title}</h3>}
+                    {image.description && (
+                      <p className={styles.slideDescription}>{image.description}</p>
+                    )}
+                  </div>
+                )}
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );

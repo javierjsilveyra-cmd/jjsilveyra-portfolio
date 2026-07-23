@@ -36,11 +36,12 @@ export async function getPintoresPampeanosGallery(): Promise<
 
     for (const item of data.items) {
       try {
-        if (!item.fields || !item.fields.imagen) {
+        const itemAny: any = item;
+        if (!itemAny.fields || !itemAny.fields.imagen) {
           continue;
         }
 
-        const imageField: any = item.fields.imagen;
+        const imageField: any = itemAny.fields.imagen;
         let imageUrl = "";
         let imageWidth = 800;
         let imageHeight = 600;
@@ -48,10 +49,8 @@ export async function getPintoresPampeanosGallery(): Promise<
         // Handle different Contentful asset formats
         if (imageField.fields?.file?.url) {
           imageUrl = imageField.fields.file.url;
-          imageWidth =
-            imageField.fields.file.details?.image?.width || imageWidth;
-          imageHeight =
-            imageField.fields.file.details?.image?.height || imageHeight;
+          imageWidth = imageField.fields.file.details?.image?.width || imageWidth;
+          imageHeight = imageField.fields.file.details?.image?.height || imageHeight;
         } else if (imageField.url) {
           imageUrl = imageField.url;
           imageWidth = imageField.details?.image?.width || imageWidth;
@@ -59,20 +58,20 @@ export async function getPintoresPampeanosGallery(): Promise<
         }
 
         if (!imageUrl) {
-          console.warn("No image URL found for item:", item.sys.id);
+          console.warn("No image URL found for item:", itemAny.sys?.id);
           continue;
         }
 
         images.push({
-          id: item.sys.id,
-          title: item.fields.titulo || "",
+          id: itemAny.sys?.id,
+          title: itemAny.fields?.titulo || "",
           image: {
             url: imageUrl,
             width: imageWidth,
             height: imageHeight,
-            alt: item.fields.imagenAlt || item.fields.titulo || "",
+            alt: itemAny.fields?.imagenAlt || itemAny.fields?.titulo || "",
           },
-          description: item.fields.descripcion || "",
+          description: itemAny.fields?.descripcion || "",
         });
       } catch (e) {
         console.error("Error mapping gallery item:", e);
@@ -97,7 +96,7 @@ export async function getAllPaintings() {
     content_type: "pintura",
   });
 
-  return JSON.parse((data as any).stringifySafe());
+  return JSON.parse(safeJsonStringify(data));
 }
 
 export async function getAllCollections() {
@@ -105,7 +104,7 @@ export async function getAllCollections() {
     content_type: "collection",
   });
 
-  return JSON.parse((data as any).stringifySafe());
+  return JSON.parse(safeJsonStringify(data));
 }
 
 export async function getCollectionByEntryId(entryId: string) {

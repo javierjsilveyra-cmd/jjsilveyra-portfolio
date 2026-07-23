@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import PintoresPampeanosSlideshow from "../../components/PintoresPampeanosSlideshow";
 import { getPintoresPampeanosGallery, type PintoresPampeanosImage } from "../../services/api";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 
 interface PintoresPampeanosProps {
   galleryImages: PintoresPampeanosImage[];
@@ -43,30 +43,30 @@ export default function PintoresPampeanos({
 
             <h3 className={styles.subsectionTitle}>Ubicación</h3>
             <p className={styles.paragraph}>
-              Los participantes que queden seleccionados para la residencia convivirán en una misma ubicación, convenientemente elegida en la pampa húmeda de la provincia de Buenos Aires. Aunque no haya relación institucional alguna, se debe mencionar que este proyecto está inspirado en su creación por otro muy anterior, la &quot;Hudson River Fellowship&quot;, una iniciativa de Grand Central Atelier en EE.UU.
+              Los participantes que queden seleccionados para la residencia convivirán en una misma ubicación, convenientemente elegida en la pampa húmeda de la provincia de Buenos Aires. Aunque la sede exacta se comunicará a los seleccionados, el entorno rural es parte esencial de la experiencia.
             </p>
           </div>
 
           <div className={styles.column}>
             <h2 className={styles.sectionTitle}>Detalles para los Artistas</h2>
             <p className={styles.paragraph}>
-              Veinte aplicantes seleccionados convivirán y trabajarán juntos durante seis días, del 8 al 13 de febrero de 2027. Los artistas se alojarán en los dormitorios de &quot;La Rica&quot;, y pintarán en el entorno campestre de esta antigua estancia de 1838. A dos horas y media de C.A.B.A., &quot;La Rica&quot; se encuentra rodeada de animales de campo, un antiguo y pintoresco jardín adornado de aljibes, pilares y galerías, además de la amplia llanura pampeana.
+              Veinte aplicantes seleccionados convivirán y trabajarán juntos durante seis días, del 8 al 13 de febrero de 2027. Los artistas se alojarán en los dormitorios de &quot;La Rica&quot; y compartirán estudio y sesiones de trabajo colaborativo.
             </p>
 
             <p className={styles.paragraph}>
-              La residencia está diseñada para ser una experiencia colaborativa en vez de una instrucción formal. Aunque no haya un cronograma fijo más que para las comidas, habrán demostraciones varias, críticas grupales, momentos de pintar cercanamente en conjunto, o individualmente.
+              La residencia está diseñada para ser una experiencia colaborativa en vez de una instrucción formal. Aunque no haya un cronograma fijo más que para las comidas, habrán demostraciones y momentos de crítica colectiva.
             </p>
 
             <h3 className={styles.subsectionTitle}>Información Práctica</h3>
             <ul className={styles.list}>
               <li>
-                <strong>Alojamiento y comida:</strong> Se asignará a cada participante una habitación, que podrá ser individual o compartida. La comida será provista al mediodía y preparada especialmente por el equipo de La Rica. Se proporcionará desayuno y cena para todos los participantes.
+                <strong>Alojamiento y comida:</strong> Se asignará a cada participante una habitación, que podrá ser individual o compartida. La comida será provista al mediodía y preparada en sitio.
               </li>
               <li>
-                <strong>Viajes:</strong> Los artistas son responsables de todos los gastos relacionados con el viaje. Se coordinarán traslados grupales desde Buenos Aires a La Rica, para arribar el primer día de la residencia.
+                <strong>Viajes:</strong> Los artistas son responsables de todos los gastos relacionados con el viaje. Se coordinarán traslados grupales desde Buenos Aires a La Rica, para arribar en horario acordado.
               </li>
               <li>
-                <strong>Tarifa:</strong> Al momento de la aceptación de aplicación, se requerirá abonar una tarifa de participación de $500 mil pesos en dos pagos, que cubre la comida (desayuno, almuerzo y cena), alojamiento y los materiales básicos necesarios para la residencia.
+                <strong>Tarifa:</strong> Al momento de la aceptación de aplicación, se requerirá abonar una tarifa de participación de $500 mil pesos en dos pagos, que cubre la comida y el alojamiento básico.
               </li>
             </ul>
           </div>
@@ -100,7 +100,7 @@ export default function PintoresPampeanos({
         <div className={styles.fullWidth}>
           <h2 className={styles.sectionTitle}>Acerca de la Aplicación</h2>
           <p className={styles.paragraph}>
-            Además de responder algunas preguntas relacionadas con los objetivos e intereses artísticos, se solicita a los artistas que envíen 7 imágenes (indicando técnica, tamaño y fecha) de trabajos recientes que demuestren su nivel y proceso artístico.
+            Además de responder algunas preguntas relacionadas con los objetivos e intereses artísticos, se solicita a los artistas que envíen 7 imágenes (indicando técnica, tamaño y fecha) que muestren su trabajo reciente.
           </p>
           <ul className={styles.list}>
             <li>Se fomenta incluir paisajes, aunque no exclusivamente, también puede incluir figuras, yesos, naturalezas muertas, interiores, etc.</li>
@@ -141,19 +141,19 @@ export default function PintoresPampeanos({
   );
 }
 
-export const getServerSideProps: GetServerSideProps<PintoresPampeanosProps> =
-  async () => {
-    try {
-      const galleryImages = await getPintoresPampeanosGallery();
-      return {
-        props: { galleryImages },
-        revalidate: 3600,
-      };
-    } catch (error) {
-      console.error("Error fetching gallery data:", error);
-      return {
-        props: { galleryImages: [] },
-        revalidate: 300,
-      };
-    }
-  };
+export const getStaticProps: GetStaticProps<PintoresPampeanosProps> = async () => {
+  try {
+    const galleryImages = await getPintoresPampeanosGallery();
+
+    return {
+      props: { galleryImages },
+      revalidate: 3600,
+    };
+  } catch (error) {
+    console.error("Error fetching gallery data:", error);
+    return {
+      props: { galleryImages: [] },
+      revalidate: 300,
+    };
+  }
+};

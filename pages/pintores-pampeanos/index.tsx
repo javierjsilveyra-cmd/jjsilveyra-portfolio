@@ -7,7 +7,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import PintoresPampeanosSlideshow from "../../components/PintoresPampeanosSlideshow";
-import { getPintoresPampeanosGallery, PintoresPampeanosImage } from "../../services/pintores-pampeanos";
+import { getPintoresPampeanosGallery } from "../../services/api";
+import type { PintoresPampeanosImage } from "../../services/api";
 import { GetServerSideProps } from "next";
 
 interface PintoresPampeanosProps {
@@ -145,15 +146,16 @@ export const getServerSideProps: GetServerSideProps<PintoresPampeanosProps> =
   async () => {
     try {
       const galleryImages = await getPintoresPampeanosGallery();
+      console.log("Gallery images loaded:", galleryImages.length);
       return {
         props: { galleryImages },
-        revalidate: 3600, // Revalidar cada hora
+        revalidate: 3600,
       };
     } catch (error) {
       console.error("Error fetching gallery data:", error);
       return {
         props: { galleryImages: [] },
-        revalidate: 300, // Revalidar cada 5 minutos en caso de error
+        revalidate: 300,
       };
     }
   };

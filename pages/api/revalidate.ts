@@ -24,14 +24,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const revalidated: string[] = [];
     for (const path of paths) {
-      // Next's res.revalidate triggers ISR for the given path
-      // (Note: in Next.js >=12 this is available in API routes)
-      // await res.revalidate(path) throws if the path is invalid
-      // so we try/catch per-path to continue revalidating other paths.
       try {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore-next-line
-        await res.revalidate(path);
+        // Cast res to any so we can call revalidate without TypeScript complaining
+        await (res as any).revalidate(path);
         revalidated.push(path);
       } catch (err) {
         console.error("Failed to revalidate", path, err);

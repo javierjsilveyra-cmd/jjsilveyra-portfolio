@@ -68,6 +68,20 @@ export default function PintoresPampeanos({
               </ul>
             </section>
 
+            {/* Video section (YouTube embed) */}
+            <section className={styles.videoSection}>
+              <h2 className={styles.sectionTitle}>Video de la Residencia</h2>
+              <div className={styles.videoWrapper}>
+                <iframe
+                  src="https://www.youtube.com/embed/fuvTxfEcYhc"
+                  title="Pintores Pampeanos - Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </section>
+
             {/* 'About the Application' section remains later in the page */}
           </main>
 
@@ -119,12 +133,12 @@ export default function PintoresPampeanos({
             </p>
             <a
               href="https://forms.gle/nVK8RAesWo4ARX4s7"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.link}
-              >
-                Enviar Aplicación
-              </a>
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.link}
+            >
+              Enviar Aplicación
+            </a>
           </div>
         </div>
       </div>

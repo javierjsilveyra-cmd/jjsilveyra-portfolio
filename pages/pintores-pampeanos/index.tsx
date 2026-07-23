@@ -1,11 +1,6 @@
 import React from "react";
 import Layout from "../../components/Layout";
 import styles from "./index.module.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import PintoresPampeanosSlideshow from "../../components/PintoresPampeanosSlideshow";
 import { getPintoresPampeanosGallery, type PintoresPampeanosImage } from "../../services/api";
 import { GetStaticProps } from "next";
@@ -17,86 +12,96 @@ interface PintoresPampeanosProps {
 export default function PintoresPampeanos({
   galleryImages,
 }: PintoresPampeanosProps) {
-  const staticImages = [
-    { src: "/pintores-pampeanos/horse.jpg", alt: "Artista pintando caballo" },
-    { src: "/pintores-pampeanos/artists.jpg", alt: "Artistas pintando en grupo" },
-    { src: "/pintores-pampeanos/easel.jpg", alt: "Caballete con pintura de paisaje" },
-    { src: "/pintores-pampeanos/forest.jpg", alt: "Caballete pintando en bosque" },
-  ];
-
   return (
     <Layout>
       <div className={styles.container}>
         <h1 className={styles.title}>Pintores Pampeanos (3º edición)</h1>
         <p className={styles.subtitle}>Una residencia colaborativa de pintura de paisaje</p>
 
-        <div className={styles.content}>
-          <div className={styles.column}>
-            <h2 className={styles.sectionTitle}>Sobre la Residencia</h2>
-            <p className={styles.paragraph}>
-              Del 8 al 13 de febrero de 2027 se llevará a cabo &quot;Pintores Pampeanos&quot;, resultando de una convocatoria dirigida a artistas interesados en la pintura del paisaje. El propósito de esta residencia de seis días es la búsqueda e investigación del dibujo y pintura de la naturaleza, en un ambiente ameno de colegas y amigos. Esta iniciativa que empezó en 2025 busca empalmarse con el movimiento actual de renovación del arte clásico/tradicional.
-            </p>
-
-            <p className={styles.italic}>
-              Durante la residencia cada uno de los artistas está alentado a dibujar y pintar a partir de la observación de la naturaleza en &quot;plein air&quot;, como principal motor, además de participar en el intercambio de técnicas, ideas, conceptos, etc., todo aquello que resulte de utilidad y motivación para la nutrición artística personal, con el empuje que es el hacerlo de manera colectiva.
-            </p>
-
-            <h3 className={styles.subsectionTitle}>Ubicación</h3>
-            <p className={styles.paragraph}>
-              Los participantes que queden seleccionados para la residencia convivirán en una misma ubicación, convenientemente elegida en la pampa húmeda de la provincia de Buenos Aires. Aunque la sede exacta se comunicará a los seleccionados, el entorno rural es parte esencial de la experiencia.
-            </p>
-          </div>
-
-          <div className={styles.column}>
-            <h2 className={styles.sectionTitle}>Detalles para los Artistas</h2>
-            <p className={styles.paragraph}>
-              Veinte aplicantes seleccionados convivirán y trabajarán juntos durante seis días, del 8 al 13 de febrero de 2027. Los artistas se alojarán en los dormitorios de &quot;La Rica&quot; y compartirán estudio y sesiones de trabajo colaborativo.
-            </p>
-
-            <p className={styles.paragraph}>
-              La residencia está diseñada para ser una experiencia colaborativa en vez de una instrucción formal. Aunque no haya un cronograma fijo más que para las comidas, habrán demostraciones y momentos de crítica colectiva.
-            </p>
-
-            <h3 className={styles.subsectionTitle}>Información Práctica</h3>
-            <ul className={styles.list}>
-              <li>
-                <strong>Alojamiento y comida:</strong> Se asignará a cada participante una habitación, que podrá ser individual o compartida. La comida será provista al mediodía y preparada en sitio.
-              </li>
-              <li>
-                <strong>Viajes:</strong> Los artistas son responsables de todos los gastos relacionados con el viaje. Se coordinarán traslados grupales desde Buenos Aires a La Rica, para arribar en horario acordado.
-              </li>
-              <li>
-                <strong>Tarifa:</strong> Al momento de la aceptación de aplicación, se requerirá abonar una tarifa de participación de $500 mil pesos en dos pagos, que cubre la comida y el alojamiento básico.
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Gallery from Contentful */}
+        {/* Gallery at the top (hero-style) */}
         {galleryImages && galleryImages.length > 0 && (
-          <>
-            <h2 className={styles.galleryTitle}>Galería de la Residencia</h2>
+          <section className={styles.galleryHero}>
             <PintoresPampeanosSlideshow images={galleryImages} />
-          </>
+          </section>
         )}
 
-        {/* Static slideshow */}
-        <div className={styles.slideshow}>
-          <Swiper
-            modules={[Navigation, Pagination]}
-            navigation
-            pagination={{ clickable: true }}
-            loop
-            className={styles.swiper}
-          >
-            {staticImages.map((image, index) => (
-              <SwiperSlide key={index}>
-                <img src={image.src} alt={image.alt} className={styles.slideImage} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        {/* Main content with sidebar (inspired by the layout of the example page) */}
+        <div className={styles.contentWithSidebar}>
+          <main className={styles.mainColumn}>
+            <section className={styles.intro}>
+              <h2 className={styles.sectionTitle}>Sobre la Residencia</h2>
+              <p className={styles.paragraph}>
+                Del 8 al 13 de febrero de 2027 se llevará a cabo "Pintores Pampeanos", resultando de una convocatoria dirigida a artistas interesados en la pintura del paisaje. El propósito de esta residencia de seis días es la búsqueda e investigación del dibujo y pintura de la naturaleza, en un ambiente ameno de colegas y amigos. Esta iniciativa que empezó en 2025 busca empalmarse con el movimiento actual de renovación del arte clásico/tradicional.
+              </p>
+
+              <p className={styles.italic}>
+                Durante la residencia cada uno de los artistas está alentado a dibujar y pintar a partir de la observación de la naturaleza en "plein air", como principal motor, además de participar en el intercambio de técnicas, ideas, conceptos, etc., todo aquello que resulte de utilidad y motivación para la nutrición artística personal, con el empuje que es el hacerlo de manera colectiva.
+              </p>
+
+              <h3 className={styles.subsectionTitle}>Ubicación</h3>
+              <p className={styles.paragraph}>
+                Los participantes que queden seleccionados para la residencia convivirán en una misma ubicación, convenientemente elegida en la pampa húmeda de la provincia de Buenos Aires. Aunque la sede exacta se comunicará a los seleccionados, el entorno rural es parte esencial de la experiencia.
+              </p>
+            </section>
+
+            <section className={styles.details}>
+              <h2 className={styles.sectionTitle}>Detalles para los Artistas</h2>
+              <p className={styles.paragraph}>
+                Veinte aplicantes seleccionados convivirán y trabajarán juntos durante seis días, del 8 al 13 de febrero de 2027. Los artistas se alojarán en los dormitorios de "La Rica" y compartirán estudio y sesiones de trabajo colaborativo.
+              </p>
+
+              <p className={styles.paragraph}>
+                La residencia está diseñada para ser una experiencia colaborativa en vez de una instrucción formal. Aunque no haya un cronograma fijo más que para las comidas, habrán demostraciones y momentos de crítica colectiva.
+              </p>
+
+              <h3 className={styles.subsectionTitle}>Información Práctica</h3>
+              <ul className={styles.list}>
+                <li>
+                  <strong>Alojamiento y comida:</strong> Se asignará a cada participante una habitación, que podrá ser individual o compartida. La comida será provista al mediodía y preparada en sitio.
+                </li>
+                <li>
+                  <strong>Viajes:</strong> Los artistas son responsables de todos los gastos relacionados con el viaje. Se coordinarán traslados grupales desde Buenos Aires a La Rica, para arribar en horario acordado.
+                </li>
+                <li>
+                  <strong>Tarifa:</strong> Al momento de la aceptación de aplicación, se requerirá abonar una tarifa de participación de $500 mil pesos en dos pagos, que cubre la comida y el alojamiento básico.
+                </li>
+              </ul>
+            </section>
+
+            {/* 'About the Application' section remains later in the page */}
+          </main>
+
+          <aside className={styles.sidebar}>
+            <div className={styles.sidebarCard}>
+              <h3 className={styles.cardTitle}>Próxima Edición</h3>
+              <p className={styles.cardText}><strong>Fechas:</strong> 8–13 Febrero 2027</p>
+              <p className={styles.cardText}><strong>Ubicación:</strong> La Rica, Provincia de Buenos Aires</p>
+              <p className={styles.cardText}><strong>Plazas:</strong> 20 artistas</p>
+              <a
+                href="https://forms.gle/nVK8RAesWo4ARX4s7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.applyButton}
+              >
+                Enviar Aplicación
+              </a>
+            </div>
+
+            <div className={styles.sidebarCard}>
+              <h4 className={styles.cardTitle}>Reglas de Convivencia</h4>
+              <a
+                href="https://docs.google.com/document/d/1Mce6ztDDUFuo-MvZaWwfWCHhmWJxv3uRSrHPFBLi5L0/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.link}
+              >
+                Descargar Documento
+              </a>
+            </div>
+          </aside>
         </div>
 
+        {/* Acerca de la Aplicación */}
         <div className={styles.fullWidth}>
           <h2 className={styles.sectionTitle}>Acerca de la Aplicación</h2>
           <p className={styles.paragraph}>
@@ -119,20 +124,6 @@ export default function PintoresPampeanos({
               className={styles.link}
             >
               Enviar Aplicación
-            </a>
-          </div>
-
-          <div className={styles.cta}>
-            <p className={styles.paragraph}>
-              <strong>Reglas de Convivencia</strong>
-            </p>
-            <a
-              href="https://docs.google.com/document/d/1Mce6ztDDUFuo-MvZaWwfWCHhmWJxv3uRSrHPFBLi5L0/edit?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.link}
-            >
-              Descargar Documento
             </a>
           </div>
         </div>

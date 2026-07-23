@@ -5,7 +5,7 @@ import styles from "./index.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { PintoresPampeanosImage } from "../../services/pintores-pampeanos";
+import type { PintoresPampeanosImage } from "../../services/api";
 
 interface PintoresPampeanosSlideshowProps {
   images: PintoresPampeanosImage[];

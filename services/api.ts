@@ -29,7 +29,7 @@ export async function getPintoresPampeanosGallery(): Promise<
   PintoresPampeanosImage[]
 > {
   try {
-    const data = await client.getEntries({
+    const data: any = await client.getEntries({
       content_type: "pintoresPampeanosGallery",
       order: "sys.createdAt",
     });

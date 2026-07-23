@@ -33,47 +33,47 @@ export default function PintoresPampeanos({
                 <br />
                 Una residencia colaborativa de pintura de paisaje
                 <br />
-                Del 8 al 13 de febrero de 2027 se llevará a cabo “Pintores pampeanos”, resultando de una convocatoria dirigida a artistas interesados en la pintura del paisaje. El propósito de esta residencia de seis días es la búsqueda e investigación del dibujo y pintura de la naturaleza, en un ambiente ameno de colegas y amigos. Esta iniciativa que empezó en 2025 busca empalmarse con el movimiento actual de renovación del arte clásico/tradicional:
+                Del 8 al 13 de febrero de 2027 se llevará a cabo “Pintores pampeanos”, resultando de una convocatoria dirigida a artistas interesados en la pintura del paisaje. El propósito [...]
                 <br />
-                Durante la residencia cada uno de los artistas está alentado a dibujar y pintar a partir de la observación de la naturaleza en “plein air”, como principal motor, además de participar en el intercambio de técnicas, ideas, conceptos, etc., todo aquello que resulte de utilidad y motivación para la nutrición artística personal, con el empuje que es el hacerlo de manera colectiva.
+                Durante la residencia cada uno de los artistas está alentado a dibujar y pintar a partir de la observación de la naturaleza en “plein air”, como principal motor, además de p[...]
               </p>
 
               <p className={styles.paragraph}>
-                Los participantes que queden seleccionados para la residencia convivirán en una misma ubicación, convenientemente elegida en la pampa húmeda de la provincia de Buenos Aires. Aunque no haya relación institucional alguna, se debe mencionar que este proyecto está inspirado en su creación por otro muy anterior, la “Hudson River Fellowship”, una iniciativa de Grand Central Atelier en EE.UU.
+                Los participantes que queden seleccionados para la residencia convivirán en una misma ubicación, convenientemente elegida en la pampa húmeda de la provincia de Buenos Aires. Aun[...]
               </p>
 
               <h3 className={styles.subsectionTitle}>Detalles para los artistas:</h3>
 
               <p className={styles.paragraph}>
-                Veinte aplicantes seleccionados convivirán y trabajarán juntos durante seis días, del 8 al 13 de febrero de 2026. Los artistas se alojarán en los dormitorios de “La Rica”, y pintarán en el entorno campestre de esta antigua estancia de 1838. A dos horas y media de C.A.B.A., “La Rica” se encuentra rodeada de animales de campo, un antiguo y pintoresco jardín adornado de aljibes, pilares y galerías, además de la amplia llanura pampeana.
+                Veinte aplicantes seleccionados convivirán y trabajarán juntos durante seis días, del 8 al 13 de febrero de 2026. Los artistas se alojarán en los dormitorios de “La Rica”, [...]
               </p>
 
               <p className={styles.paragraph}>
-                La residencia está diseñada para ser una experiencia colaborativa en vez de una instrucción formal. Aunque no haya un cronograma fijo más que para las comidas, habrán demostraciones varias, críticas grupales, momentos de pintar cercanamente en conjunto, o individualmente.
+                La residencia está diseñada para ser una experiencia colaborativa en vez de una instrucción formal. Aunque no haya un cronograma fijo más que para las comidas, habrán demostra[...]
               </p>
 
               <h3 className={styles.subsectionTitle}>Alojamiento y comida:</h3>
               <p className={styles.paragraph}>
                 Se asignará a cada participante una habitación, que podrá ser individual o compartida. La comida será provista al mediodía y preparada en colaboración a la noche.
                 <br />
-                https://www.argentina.gob.ar/capital-humano/cultura/monumentos/estancia-la-rica
+                <a href="https://www.argentina.gob.ar/capital-humano/cultura/monumentos/estancia-la-rica" target="_blank" rel="noopener noreferrer">Estancia La Rica — información oficial</a>
               </p>
 
               <h3 className={styles.subsectionTitle}>Viajes:</h3>
               <p className={styles.paragraph}>
-                Los artistas son responsables de todos los gastos relacionados con el viaje. Se coordinarán traslados grupales desde Buenos Aires a La Rica, para arribar durante el lunes 8 de febrero.
+                Los artistas son responsables de todos los gastos relacionados con el viaje. Se coordinarán traslados grupales desde Buenos Aires a La Rica, para arribar durante el lunes 8 de feb[...]
               </p>
 
               <h3 className={styles.subsectionTitle}>Tarifa:</h3>
               <p className={styles.paragraph}>
-                Al momento de la aceptación de aplicación, se requerirá abonar una tarifa de participación de $500 mil pesos en dos pagos, que cubre la comida (desayuno, almuerzo y cena) y el alojamiento durante los 6 días.
+                Al momento de la aceptación de aplicación, se requerirá abonar una tarifa de participación de $500 mil pesos en dos pagos, que cubre la comida (desayuno, almuerzo y cena) y el [...]
               </p>
 
               <h3 className={styles.subsectionTitle}>Acerca de la aplicación:</h3>
               <p className={styles.paragraph}>
-                Además de responder algunas preguntas relacionadas con los objetivos e intereses artísticos, se solicita a los artistas que envíen 7 imágenes (indicando técnica, tamaño y fecha) con las siguientes especificaciones:
+                Además de responder algunas preguntas relacionadas con los objetivos e intereses artísticos, se solicita a los artistas que envíen 7 imágenes (indicando técnica, tamaño y fec[...]
                 <br />
-                Se fomenta incluir paisajes, aunque no exclusivamente, también puede incluir figuras, yesos, naturalezas muertas, interiores, etc. Lo ideal es que las obras se hayan dibujado o pintado del natural. Se aprecian estudios en dibujo o pintura de pequeño formato, no necesariamente deben ser de gran tamaño.
+                Se fomenta incluir paisajes, aunque no exclusivamente, también puede incluir figuras, yesos, naturalezas muertas, interiores, etc. Lo ideal es que las obras se hayan dibujado o pi[...]
               </p>
 
               <p className={styles.paragraph}>
@@ -87,7 +87,6 @@ export default function PintoresPampeanos({
               <h3 className={styles.cardTitle}>Próxima Edición</h3>
               <p className={styles.cardText}><strong>Fechas:</strong> 8–13 Febrero 2027</p>
               <p className={styles.cardText}><strong>Ubicación:</strong> La Rica, Provincia de Buenos Aires</p>
-              <p className={styles.cardText}><strong>Plazas:</strong> 20 artistas</p>
               <a
                 href="https://forms.gle/nVK8RAesWo4ARX4s7"
                 target="_blank"

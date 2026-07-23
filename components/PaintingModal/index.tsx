@@ -4,7 +4,6 @@ import { Button } from "@mui/material";
 import { Painting } from "../../types";
 import { Modal } from "@mui/material";
 import Image from "next/image";
-import ImageZoom from "react-image-zooom";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 

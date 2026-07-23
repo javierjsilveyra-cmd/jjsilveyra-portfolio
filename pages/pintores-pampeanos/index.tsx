@@ -29,6 +29,18 @@ export default function PintoresPampeanos({
               Durante la residencia cada uno de los artistas está alentado a dibujar y pintar a partir de la observación de la naturaleza en &quot;plein air&quot;, como principal motor, además de trabajar en atelier en los espacios provistos.
             </p>
 
+            <div className={styles.videoContainer}>
+              <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/fuvTxfEcYhc"
+                title="Pintores Pampeanos - Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+
             <h3 className={styles.subsectionTitle}>Ubicación</h3>
             <p className={styles.paragraph}>
               Los participantes que queden seleccionados para la residencia convivirán en una misma ubicación, convenientemente elegida en la pampa húmeda de la provincia de Buenos Aires. Aunque el paisaje es el punto de partida para el trabajo, no es el único enfoque temático.

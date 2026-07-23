@@ -7,8 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import PintoresPampeanosSlideshow from "../../components/PintoresPampeanosSlideshow";
-import { getPintoresPampeanosGallery } from "../../services/api";
-import type { PintoresPampeanosImage } from "../../services/api";
+import { getPintoresPampeanosGallery, type PintoresPampeanosImage } from "../../services/api";
 import { GetServerSideProps } from "next";
 
 interface PintoresPampeanosProps {
@@ -146,7 +145,6 @@ export const getServerSideProps: GetServerSideProps<PintoresPampeanosProps> =
   async () => {
     try {
       const galleryImages = await getPintoresPampeanosGallery();
-      console.log("Gallery images loaded:", galleryImages.length);
       return {
         props: { galleryImages },
         revalidate: 3600,

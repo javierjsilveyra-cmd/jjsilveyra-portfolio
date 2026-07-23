@@ -72,14 +72,7 @@ export default function PintoresPampeanos({
           </div>
         </div>
 
-        {/* Gallery from Contentful */}
-        {galleryImages && galleryImages.length > 0 && (
-          <>
-            <h2 className={styles.galleryTitle}>Galería de la Residencia</h2>
-            <PintoresPampeanosSlideshow images={galleryImages} />
-          </>
-        )}
-
+        {/* Acerca de la Aplicación */}
         <div className={styles.fullWidth}>
           <h2 className={styles.sectionTitle}>Acerca de la Aplicación</h2>
           <p className={styles.paragraph}>
@@ -119,6 +112,14 @@ export default function PintoresPampeanos({
             </a>
           </div>
         </div>
+
+        {/* Gallery from Contentful */}
+        {galleryImages && galleryImages.length > 0 && (
+          <>
+            <h2 className={styles.galleryTitle}>Galería de la Residencia</h2>
+            <PintoresPampeanosSlideshow images={galleryImages} />
+          </>
+        )}
       </div>
     </Layout>
   );

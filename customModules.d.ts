@@ -1,2 +1,1 @@
-// Modules
-declare module "react-image-zooom";
+// custom module declarations (removed react-image-zooom)

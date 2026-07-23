@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Keyboard } from "swiper/modules";
 import styles from "./index.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -14,6 +14,23 @@ interface PintoresPampeanosSlideshowProps {
 export default function PintoresPampeanosSlideshow({
   images,
 }: PintoresPampeanosSlideshowProps) {
+  const swiperRef = useRef<any>(null);
+
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (swiperRef.current) {
+        if (e.key === "ArrowLeft") {
+          swiperRef.current.slidePrev();
+        } else if (e.key === "ArrowRight") {
+          swiperRef.current.slideNext();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, []);
+
   if (!images || images.length === 0) {
     return null;
   }
@@ -21,9 +38,11 @@ export default function PintoresPampeanosSlideshow({
   return (
     <div className={styles.slideshowContainer}>
       <Swiper
-        modules={[Navigation, Pagination]}
+        ref={swiperRef}
+        modules={[Navigation, Pagination, Keyboard]}
         navigation
         pagination={{ clickable: true }}
+        keyboard={{ enabled: true }}
         loop
         className={styles.swiper}
         spaceBetween={0}

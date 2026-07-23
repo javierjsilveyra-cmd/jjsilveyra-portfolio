@@ -97,7 +97,7 @@ export async function getAllPaintings() {
     content_type: "pintura",
   });
 
-  return JSON.parse((data as any).stringifySafe());
+  return JSON.parse(safeJsonStringify(data));
 }
 
 export async function getAllCollections() {
@@ -105,7 +105,7 @@ export async function getAllCollections() {
     content_type: "collection",
   });
 
-  return JSON.parse((data as any).stringifySafe());
+  return JSON.parse(safeJsonStringify(data));
 }
 
 export async function getCollectionByEntryId(entryId: string) {

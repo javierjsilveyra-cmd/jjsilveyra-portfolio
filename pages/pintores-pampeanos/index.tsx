@@ -31,11 +31,11 @@ export default function PintoresPampeanos({
             <section className={styles.intro}>
               <h2 className={styles.sectionTitle}>Sobre la Residencia</h2>
               <p className={styles.paragraph}>
-                Del 8 al 13 de febrero de 2027 se llevará a cabo "Pintores Pampeanos", resultando de una convocatoria dirigida a artistas interesados en la pintura del paisaje. El propósito de esta residencia de seis días es la búsqueda e investigación del dibujo y pintura de la naturaleza, en un ambiente ameno de colegas y amigos. Esta iniciativa que empezó en 2025 busca empalmarse con el movimiento actual de renovación del arte clásico/tradicional.
+                Del 8 al 13 de febrero de 2027 se llevará a cabo &quot;Pintores Pampeanos&quot;, resultando de una convocatoria dirigida a artistas interesados en la pintura del paisaje. El propósito de esta residencia de seis días es la búsqueda e investigación del dibujo y pintura de la naturaleza, en un ambiente ameno de colegas y amigos. Esta iniciativa que empezó en 2025 busca empalmarse con el movimiento actual de renovación del arte clásico/tradicional.
               </p>
 
               <p className={styles.italic}>
-                Durante la residencia cada uno de los artistas está alentado a dibujar y pintar a partir de la observación de la naturaleza en "plein air", como principal motor, además de participar en el intercambio de técnicas, ideas, conceptos, etc., todo aquello que resulte de utilidad y motivación para la nutrición artística personal, con el empuje que es el hacerlo de manera colectiva.
+                Durante la residencia cada uno de los artistas está alentado a dibujar y pintar a partir de la observación de la naturaleza en &quot;plein air&quot;, como principal motor, además de participar en el intercambio de técnicas, ideas, conceptos, etc., todo aquello que resulte de utilidad y motivación para la nutrición artística personal, con el empuje que es el hacerlo de manera colectiva.
               </p>
 
               <h3 className={styles.subsectionTitle}>Ubicación</h3>
@@ -47,7 +47,7 @@ export default function PintoresPampeanos({
             <section className={styles.details}>
               <h2 className={styles.sectionTitle}>Detalles para los Artistas</h2>
               <p className={styles.paragraph}>
-                Veinte aplicantes seleccionados convivirán y trabajarán juntos durante seis días, del 8 al 13 de febrero de 2027. Los artistas se alojarán en los dormitorios de "La Rica" y compartirán estudio y sesiones de trabajo colaborativo.
+                Veinte aplicantes seleccionados convivirán y trabajarán juntos durante seis días, del 8 al 13 de febrero de 2027. Los artistas se alojarán en los dormitorios de &quot;La Rica&quot; y compartirán estudio y sesiones de trabajo colaborativo.
               </p>
 
               <p className={styles.paragraph}>
@@ -119,12 +119,12 @@ export default function PintoresPampeanos({
             </p>
             <a
               href="https://forms.gle/nVK8RAesWo4ARX4s7"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.link}
-            >
-              Enviar Aplicación
-            </a>
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.link}
+              >
+                Enviar Aplicación
+              </a>
           </div>
         </div>
       </div>

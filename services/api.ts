@@ -40,25 +40,36 @@ export async function getPintoresPampeanosGallery(): Promise<
           continue;
         }
 
-        const imageField = item.fields.imagen;
-        const imageData =
-          imageField.fields?.file || imageField.url
-            ? imageField
-            : imageField.fields;
+        const imageField: any = item.fields.imagen;
+        let imageUrl = "";
+        let imageWidth = 800;
+        let imageHeight = 600;
+
+        // Handle different Contentful asset formats
+        if (imageField.fields?.file?.url) {
+          imageUrl = imageField.fields.file.url;
+          imageWidth =
+            imageField.fields.file.details?.image?.width || imageWidth;
+          imageHeight =
+            imageField.fields.file.details?.image?.height || imageHeight;
+        } else if (imageField.url) {
+          imageUrl = imageField.url;
+          imageWidth = imageField.details?.image?.width || imageWidth;
+          imageHeight = imageField.details?.image?.height || imageHeight;
+        }
+
+        if (!imageUrl) {
+          console.warn("No image URL found for item:", item.sys.id);
+          continue;
+        }
 
         images.push({
           id: item.sys.id,
           title: item.fields.titulo || "",
           image: {
-            url: imageData.url || imageData.fields?.file?.url || "",
-            width:
-              imageData.details?.image?.width ||
-              imageData.fields?.file?.details?.image?.width ||
-              800,
-            height:
-              imageData.details?.image?.height ||
-              imageData.fields?.file?.details?.image?.height ||
-              600,
+            url: imageUrl,
+            width: imageWidth,
+            height: imageHeight,
             alt: item.fields.imagenAlt || item.fields.titulo || "",
           },
           description: item.fields.descripcion || "",
@@ -69,6 +80,7 @@ export async function getPintoresPampeanosGallery(): Promise<
       }
     }
 
+    console.log(`Successfully loaded ${images.length} gallery images`);
     return images;
   } catch (error) {
     console.error("Error fetching Pintores Pampeanos gallery:", error);
@@ -85,7 +97,7 @@ export async function getAllPaintings() {
     content_type: "pintura",
   });
 
-  return JSON.parse(data.stringifySafe());
+  return JSON.parse((data as any).stringifySafe());
 }
 
 export async function getAllCollections() {
@@ -93,7 +105,7 @@ export async function getAllCollections() {
     content_type: "collection",
   });
 
-  return JSON.parse(data.stringifySafe());
+  return JSON.parse((data as any).stringifySafe());
 }
 
 export async function getCollectionByEntryId(entryId: string) {

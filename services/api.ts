@@ -22,19 +22,21 @@ export async function getPintoresPampeanosGallery(): Promise<
   PintoresPampeanosImage[]
 > {
   try {
-    const data = await client.getEntries({
+    const data: any = await client.getEntries({
       content_type: "pintoresPampeanosGallery",
       order: "sys.createdAt",
     });
 
-    if (!data || !data.items || data.items.length === 0) {
+    const items: any[] = Array.isArray(data?.items) ? (data.items as any[]) : [];
+
+    if (items.length === 0) {
       console.log("No gallery items found in Contentful");
       return [];
     }
 
     const images: PintoresPampeanosImage[] = [];
 
-    for (const item of data.items) {
+    for (const item of items) {
       try {
         if (!item.fields || !item.fields.imagen) {
           continue;
@@ -59,12 +61,12 @@ export async function getPintoresPampeanosGallery(): Promise<
         }
 
         if (!imageUrl) {
-          console.warn("No image URL found for item:", item.sys.id);
+          console.warn("No image URL found for item:", item.sys?.id);
           continue;
         }
 
         images.push({
-          id: item.sys.id,
+          id: item.sys?.id || "",
           title: item.fields.titulo || "",
           image: {
             url: imageUrl,
@@ -97,7 +99,7 @@ export async function getAllPaintings() {
     content_type: "pintura",
   });
 
-  return JSON.parse((data as any).stringifySafe());
+  return JSON.parse(safeJsonStringify(data));
 }
 
 export async function getAllCollections() {
@@ -105,7 +107,7 @@ export async function getAllCollections() {
     content_type: "collection",
   });
 
-  return JSON.parse((data as any).stringifySafe());
+  return JSON.parse(safeJsonStringify(data));
 }
 
 export async function getCollectionByEntryId(entryId: string) {

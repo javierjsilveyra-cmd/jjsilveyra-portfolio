@@ -18,18 +18,11 @@ export interface PintoresPampeanosImage {
   description?: string;
 }
 
-function normalizeUrl(url?: string): string {
-  if (!url) return "";
-  if (url.startsWith("http://") || url.startsWith("https://")) return url;
-  if (url.startsWith("//")) return `https:${url}`;
-  return url;
-}
-
 export async function getPintoresPampeanosGallery(): Promise<
   PintoresPampeanosImage[]
 > {
   try {
-    const data: any = await client.getEntries({
+    const data = await client.getEntries({
       content_type: "pintoresPampeanosGallery",
       order: "sys.createdAt",
     });
@@ -64,8 +57,6 @@ export async function getPintoresPampeanosGallery(): Promise<
           imageWidth = imageField.details?.image?.width || imageWidth;
           imageHeight = imageField.details?.image?.height || imageHeight;
         }
-
-        imageUrl = normalizeUrl(imageUrl);
 
         if (!imageUrl) {
           console.warn("No image URL found for item:", item.sys.id);
@@ -106,7 +97,7 @@ export async function getAllPaintings() {
     content_type: "pintura",
   });
 
-  return JSON.parse(safeJsonStringify(data));
+  return JSON.parse((data as any).stringifySafe());
 }
 
 export async function getAllCollections() {
@@ -114,7 +105,7 @@ export async function getAllCollections() {
     content_type: "collection",
   });
 
-  return JSON.parse(safeJsonStringify(data));
+  return JSON.parse((data as any).stringifySafe());
 }
 
 export async function getCollectionByEntryId(entryId: string) {

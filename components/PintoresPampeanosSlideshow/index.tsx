@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -35,9 +36,11 @@ export default function PintoresPampeanosSlideshow({
               <div className={styles.slideContent}>
                 <div className={styles.imageWrapper}>
                   {src ? (
-                    <img
-                      src={src}
+                    <Image
+                      src={src.startsWith("//") ? `https:${src}` : src}
                       alt={alt}
+                      width={image.image?.width || 1200}
+                      height={image.image?.height || 800}
                       className={styles.slideImage}
                       loading="lazy"
                     />

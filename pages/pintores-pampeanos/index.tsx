@@ -41,7 +41,6 @@ export default function PintoresPampeanos({
               ></iframe>
             </div>
 
-            <h3 className={styles.subsectionTitle}>Ubicación</h3>
             <p className={styles.paragraph}>
               Los participantes que queden seleccionados para la residencia convivirán en una misma ubicación, convenientemente elegida en la pampa húmeda de la provincia de Buenos Aires. Aunque no haya relación institucional alguna, se debe mencionar que este proyecto está inspirado en su creación por otro muy anterior, la &quot;Hudson River Fellowship&quot;, una iniciativa de Grand Central Atelier en EE.UU.
             </p>

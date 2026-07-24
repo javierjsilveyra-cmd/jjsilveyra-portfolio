@@ -73,7 +73,7 @@ export default function PintoresPampeanos({
                 <strong>Viajes:</strong> Los artistas son responsables de todos los gastos relacionados con el viaje. Se coordinarán traslados grupales desde Buenos Aires a La Rica, para arribar durante el lunes 8 de febrero.
               </li>
               <li>
-                <strong>Tarifa:</strong> Al momento de la aceptación de aplicación, se requerirá abonar una tarifa de participación de $500 mil pesos en dos pagos, que cubre la comida (desayuno, almuerzo y cena) y el alojamiento durante los 6 días.
+                <strong>Tarifa:</strong> Al momento de la aceptación de aplicación, se requerirá abonar una tarifa de participación de 00 mil pesos en dos pagos, que cubre la comida (desayuno, almuerzo y cena) y el alojamiento durante los 6 días.
               </li>
             </ul>
           </div>

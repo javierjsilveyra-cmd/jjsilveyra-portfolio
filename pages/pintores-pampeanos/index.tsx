@@ -52,7 +52,7 @@ export default function PintoresPampeanos({
           <div className={styles.column}>
             <h2 className={styles.sectionTitle}>Detalles para los Artistas</h2>
             <p className={styles.paragraph}>
-              Veinte aplicantes seleccionados convivirán y trabajarán juntos durante seis días, del 8 al 13 de febrero de 2026. Los artistas se alojarán en los dormitorios de &quot;La Rica&quot;, y pintarán en el entorno campestre de esta antigua estancia de 1838. A dos horas y media de C.A.B.A., &quot;La Rica&quot; se encuentra rodeada de animales de campo, un antiguo y pintoresco jardín adornado de aljibes, pilares y galerías, además de la amplia llanura pampeana.
+              Veinte aplicantes seleccionados convivirán y trabajarán juntos durante seis días, del 8 al 13 de febrero de 2026. Los artistas se alojarán en los dormitorios de &quot;La Rica&quot;, y pintarán en el entorno campestre de esta antigua estancia de 1838. En el partido de Chivilcoy, a dos horas y media de C.A.B.A., &quot;La Rica&quot; se encuentra rodeada de animales de campo, un antiguo y pintoresco jardín adornado de aljibes, pilares y galerías, además de la amplia llanura pampeana.
             </p>
 
             <p className={styles.paragraph}>

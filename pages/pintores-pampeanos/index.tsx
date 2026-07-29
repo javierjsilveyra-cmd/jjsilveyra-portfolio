@@ -69,7 +69,7 @@ export default function PintoresPampeanos({
                   rel="noopener noreferrer"
                   className={styles.link}
                 >
-                  https://www.argentina.gob.ar/capital-humano/cultura/monumentos/estancia-la-rica
+                  Ubicación de Estancia La Rica
                 </a>
               </li>
               <li>

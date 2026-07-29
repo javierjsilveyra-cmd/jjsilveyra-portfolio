@@ -7,11 +7,22 @@
 }
 
 .title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 48px;
   text-align: center;
   margin-bottom: 10px;
   font-weight: 400;
   letter-spacing: 2px;
+}
+
+.edition {
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #c9c9c9;
+  margin-top: 6px;
 }
 
 .subtitle {
@@ -173,6 +184,10 @@
 
   .title {
     font-size: 32px;
+  }
+
+  .edition {
+    font-size: 16px;
   }
 
   .subtitle {

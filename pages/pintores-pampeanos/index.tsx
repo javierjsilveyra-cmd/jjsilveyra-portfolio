@@ -36,7 +36,7 @@ export default function PintoresPampeanos({
               <iframe
                 width="100%"
                 height="315"
-                src="https://www.youtube.com/embed/A-cjbeQPk4"
+                src="https://www.youtube.com/embed/pdqHQ0U67bQ"
                 title="Pintores Pampeanos - Video"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

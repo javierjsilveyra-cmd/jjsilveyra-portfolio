@@ -26,6 +26,12 @@
   height: 400px;
   max-width: 500px;
   object-fit: contain;
+  cursor: pointer;
+  transition: filter 0.3s;
+}
+
+.swiperImage:hover {
+  filter: brightness(85%);
 }
 
 @media (max-width: 720px) {

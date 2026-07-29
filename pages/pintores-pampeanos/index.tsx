@@ -64,7 +64,7 @@ export default function PintoresPampeanos({
               <li>
                 <strong>Alojamiento y comida:</strong> Se asignará a cada participante una habitación, que podrá ser individual o compartida. La comida será provista al mediodía y preparada en colaboración a la noche.{" "}
                 <a
-                  href="https://www.argentina.gob.ar/capital-humano/cultura/monumentos/estancia-la-rica"
+                  href="https://maps.app.goo.gl/gnWnfBXGpRDm7sqt6"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.link}
@@ -76,7 +76,7 @@ export default function PintoresPampeanos({
                 <strong>Viajes:</strong> Los artistas son responsables de todos los gastos relacionados con el viaje. Se coordinarán traslados grupales desde Buenos Aires a La Rica, para arribar durante el lunes 8 de febrero.
               </li>
               <li>
-                <strong>Tarifa:</strong> Al momento de la aceptación de aplicación, se requerirá abonar una tarifa de participación de 00 mil pesos en dos pagos, que cubre la comida (desayuno, almuerzo y cena) y el alojamiento durante los 6 días.
+                <strong>Tarifa:</strong> Al momento de la aceptación de aplicación, se requerirá abonar una tarifa de participación de 550 mil pesos en dos pagos, que cubre la comida (desayuno, almuerzo y cena) y el alojamiento durante los 6 días.
               </li>
             </ul>
           </div>

@@ -15,7 +15,10 @@ export default function PintoresPampeanos({
   return (
     <Layout>
       <div className={styles.container}>
-        <h1 className={styles.title}>Pintores Pampeanos (3º edición)</h1>
+        <h1 className={styles.title}>
+          Pintores Pampeanos
+          <span className={styles.edition}>3º edición</span>
+        </h1>
         <p className={styles.subtitle}>Una residencia colaborativa de pintura de paisaje</p>
 
         <div className={styles.content}>

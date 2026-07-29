@@ -33,16 +33,16 @@ export default function PintoresPampeanos({
             </p>
 
             <div className={styles.videoContainer}>
-              <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/pdqHQ0U67bQ"
-                title="Pintores Pampeanos - Video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
+  <iframe
+    width="100%"
+    height="315"
+    src="https://www.youtube.com/embed/_A-cjbeQPk4"
+    title="Pintores Pampeanos - Video"
+    frameBorder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+</div>
 
             <p className={styles.paragraph}>
               Los participantes que queden seleccionados para la residencia convivirán en una misma ubicación, convenientemente elegida en la pampa húmeda de la provincia de Buenos Aires. Aunque no haya relación institucional alguna, se debe mencionar que este proyecto está inspirado en su creación por otro muy anterior, la &quot;Hudson River Fellowship&quot;, una iniciativa de Grand Central Atelier en EE.UU.
